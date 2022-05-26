@@ -54,18 +54,22 @@ const other = [
   {
     thing:
       "Команда Omsk Seaty: студенты Андрей Краснов (фулстек-разработчик), Никита Ведькал (бэкенд-разработчик), Максим Турчин (фронтенд-разработчик), Мария Черепанова (дизайнер), ментор проекта и фронтенд-разработчик Владислав Унчурис",
-		thingUrl: "https://omskzdes.ru/interviews/72318.html",
-	},
+    thingUrl: "https://omskzdes.ru/interviews/72318.html",
+  },
 ];
 
 export default function CVTemplate() {
+
   return (
-    <div className={style.container}>
+    <div
+      id="divToPrint"
+      className={style.container}
+    >
       <div>
         <img
           src={header}
           alt="header"
-          style={{ width: 1000, height: 200, objectFit: "cover" }}
+          style={{ width: "100%", height: 200, objectFit: "cover" }}
         />
       </div>
       <div className={style.content}>
@@ -80,8 +84,8 @@ export default function CVTemplate() {
         <h2>Дополнительная информация</h2>
         <OtherThingsToKnow other={other} />
 
-				<h2>Портфолио</h2>
-				<Portfolio />
+        <h2>Портфолио</h2>
+        <Portfolio />
       </div>
     </div>
   );
