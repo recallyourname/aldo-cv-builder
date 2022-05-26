@@ -14,6 +14,38 @@ export default function Form() {
     ],
   ]);
 
+  const [toolsAndSkills, setToolsAndSkills] = useState([
+    [
+      {
+        category: "",
+        elements: "",
+      },
+    ],
+  ]);
+
+  const handleToolsChange = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...toolsAndSkills];
+    list[index][name] = value;
+    setToolsAndSkills(list);
+  };
+
+  const handleToolsRemove = (index) => {
+    const list = [...toolsAndSkills];
+    list.splice(index, 1);
+    setToolsAndSkills(list);
+  };
+
+  const handleToolsAdd = () => {
+    setToolsAndSkills([
+      ...toolsAndSkills,
+      {
+        category: "",
+        elements: "",
+      },
+    ]);
+  };
+
   const handleEmploymentChange = (e, index) => {
     const { name, value } = e.target;
     const list = [...employmentHistoryList];
@@ -28,15 +60,27 @@ export default function Form() {
   };
 
   const handleEmploymentAdd = () => {
-    setEmploymentHistoryList([...employmentHistoryList, { service: "" }]);
+    setEmploymentHistoryList([
+      ...employmentHistoryList,
+      {
+        employment: "",
+        companyUrl: "",
+        positionName: "",
+        sinceDate: "",
+        dueDate: "",
+      },
+    ]);
   };
 
   console.log(employmentHistoryList);
+	console.log(toolsAndSkills);
+
 
   return (
     <div className="container">
       <h1>Форма создания CV</h1>
       <form>
+        {/* Employment History Form */}
         <div className="employment-form">
           <h2>История</h2>
           <div className="employment-form-field">
@@ -146,6 +190,78 @@ export default function Form() {
               ))}
           </div>
         </div>
+
+        {/* Technical Expertize */}
+				<div className="employment-form">
+          <h2>Инструменты и навыки</h2>
+          <div className="employment-form-field">
+            {toolsAndSkills.map((tools, index) => (
+              <div key={index} className="input-group-container">
+                <div className="employment-input-group" key={index}>
+                  <label htmlFor="category" className="input-label">
+                    {index === 0 && "Категория"}
+                    <input
+                      type="text"
+                      name="category"
+                      id="category"
+                      value={tools.category}
+                      onChange={(e) => handleToolsChange(e, index)}
+                      required
+                    />
+                  </label>
+                  <label htmlFor="elements" className="input-label">
+                    {index === 0 && "Инструменты"}
+                    <input
+                      type="text"
+                      name="elements"
+                      id="elements"
+                      value={tools.elements}
+                      onChange={(e) => handleToolsChange(e, index)}
+                      required
+                    />
+                  </label>
+                </div>
+                <div className="second-division">
+                  {toolsAndSkills.length !== 1 && (
+                    <button
+                      type="button"
+                      onClick={() => handleToolsRemove(index)}
+                      className="remove-btn"
+                    >
+                      <span>🗑</span>
+                    </button>
+                  )}
+                </div>
+                {toolsAndSkills.length - 1 === index &&
+                  toolsAndSkills.length < 10 && (
+                    <button
+                      type="button"
+                      onClick={handleToolsAdd}
+                      className="add-btn"
+                    >
+                      <span>+</span>
+                    </button>
+                  )}
+              </div>
+            ))}
+          </div>
+          <div className="output">
+            <h2>Предпросмотр</h2>
+            {toolsAndSkills &&
+              toolsAndSkills.map((tools, index) => (
+                <ul key={index}>
+                  {tools.category && (
+                    <li>
+                      {tools.category} : {tools.elements}
+                    </li>
+                  )}
+                </ul>
+              ))}
+          </div>
+        </div>
+
+				{/* other things to know */}
+				
       </form>
     </div>
   );
