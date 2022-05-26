@@ -19,15 +19,17 @@
 .input-group-container {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
 .add-btn {
-height: 50%;
+  margin-left: 0.5rem;
+  height: 50%;
   width: 20%;
   align-self: flex-end;
 }
 
 .second-division {
-    align-self: flex-end;
+  margin-left: 0.5rem;
+  align-self: flex-end;
 }

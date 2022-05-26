@@ -44,7 +44,7 @@ export default function Form() {
               <div className="input-group-container">
                 <div className="employment-input-group" key={index}>
                   <label htmlFor="employment" className="input-label">
-                    Место работы
+                    {index === 0 && "Место работы"}
                     <input
                       type="text"
                       name="employment"
@@ -55,7 +55,7 @@ export default function Form() {
                     />
                   </label>
                   <label htmlFor="companyUrl" className="input-label">
-                    Ссылка
+                    {index === 0 && "Ссылка"}
                     <input
                       type="text"
                       name="companyUrl"
@@ -66,7 +66,7 @@ export default function Form() {
                     />
                   </label>
                   <label htmlFor="positionName" className="input-label">
-                    Ссылка
+                    {index === 0 && "Название позиции"}
                     <input
                       type="text"
                       name="positionName"
@@ -77,7 +77,7 @@ export default function Form() {
                     />
                   </label>
                   <label htmlFor="sinceDate" className="input-label">
-                    Дата начала
+                    {index === 0 && "Дата начала"}
                     <input
                       type="text"
                       name="sinceDate"
@@ -88,7 +88,7 @@ export default function Form() {
                     />
                   </label>
                   <label htmlFor="dueDate" className="input-label">
-                    Дата конца
+                    {index === 0 && "Дата конца"}
                     <input
                       type="text"
                       name="dueDate"
@@ -106,7 +106,7 @@ export default function Form() {
                       onClick={() => handleEmploymentRemove(index)}
                       className="remove-btn"
                     >
-                      <span>Remove</span>
+                      <span>🗑</span>
                     </button>
                   )}
                 </div>
@@ -124,7 +124,7 @@ export default function Form() {
             ))}
           </div>
           <div className="output">
-            <h2>Output</h2>
+            <h2>Предпросмотр</h2>
             {employmentHistoryList &&
               employmentHistoryList.map((employment, index) => (
                 <ul key={index}>
@@ -138,7 +138,7 @@ export default function Form() {
                       >
                         {employment.employment}
                       </a>{" "}
-                      ({employment.positionName} - {employment.sinceDate} -{" "}
+                      ({employment.positionName} — {employment.sinceDate} —{" "}
                       {employment.dueDate})
                     </li>
                   )}
@@ -146,7 +146,6 @@ export default function Form() {
               ))}
           </div>
         </div>
-        
       </form>
     </div>
   );
