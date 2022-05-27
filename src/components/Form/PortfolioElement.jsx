@@ -10,9 +10,7 @@ export default function PortfolioElement(props) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const strtopass =
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae	impedit placeat dolores quis incidunt enim obcaecati qui sapiente quianisi quisquam, accusamus aut fugit soluta, distinctio, quas voluptateullam aspernatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae	impeLorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae	impeLorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae	impeLorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae	impe";
-
+  
   const modalStyle = {
     position: "absolute",
     top: "50%",
