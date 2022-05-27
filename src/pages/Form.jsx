@@ -366,6 +366,83 @@ export default function Form() {
               ))}
           </div>
         </div>
+
+        {/* other portfolio */}
+
+				<div className="employment-form">
+          <h2>Дополнительная информация</h2>
+          <div className="employment-form-field">
+            {things.map((tools, index) => (
+              <div key={index} className="input-group-container">
+                <div className="employment-input-group" key={index}>
+                  <label htmlFor="thing" className="input-label">
+                    {index === 0 && "Факт"}
+                    <input
+                      type="text"
+                      name="thing"
+                      id="thing"
+                      value={things.thing}
+                      onChange={(e) => handleThingsChange(e, index)}
+                      required
+                    />
+                  </label>
+                  <label htmlFor="thingUrl" className="input-label">
+                    {index === 0 && "Ссылка"}
+                    <input
+                      type="text"
+                      name="thingUrl"
+                      id="thingUrl"
+                      value={things.thing}
+                      onChange={(e) => handleThingsChange(e, index)}
+                      required
+                    />
+                  </label>
+                </div>
+                <div className="second-division">
+                  {toolsAndSkills.length !== 1 && (
+                    <button
+                      type="button"
+                      onClick={() => handleThingsRemove(index)}
+                      className="remove-btn"
+                    >
+                      <span>🗑</span>
+                    </button>
+                  )}
+                </div>
+                {toolsAndSkills.length - 1 === index &&
+                  toolsAndSkills.length < 10 && (
+                    <button
+                      type="button"
+                      onClick={handleThingsAdd}
+                      className="add-btn"
+                    >
+                      <span>+</span>
+                    </button>
+                  )}
+              </div>
+            ))}
+          </div>
+          <div className="output">
+            <h2>Предпросмотр</h2>
+            {things &&
+              things.map((thing, index) => (
+                <ul key={index}>
+                  {thing.thing && (
+                    <li>
+                      {thing.thing}{" "}
+                      <a
+                        href={thing.thingUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Learn more...
+                      </a>
+                    </li>
+                  )}
+                </ul>
+              ))}
+          </div>
+        </div>
       </form>
     </div>
   );

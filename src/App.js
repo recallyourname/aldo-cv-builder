@@ -3,8 +3,8 @@ import Form from './pages/Form';
 
 function App() {
   return (
-    <Form />
-    // <CVTemplate />
+    // <Form />
+    <CVTemplate />
   );
 }
 
