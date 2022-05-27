@@ -89,7 +89,7 @@ const portfolio = [
   }
 ]
 
-export default function CVTemplate() {
+export default function CVTemplate(props) {
 
   return (
     <div
@@ -104,19 +104,19 @@ export default function CVTemplate() {
         />
       </div>
       <div className={style.content}>
-        <h1>Nikita Vedkal</h1>
+        <h1>{props.name}</h1>
 
         <h2>История</h2>
-        <EmploymentHistory history={employment} />
+        <EmploymentHistory history={props.employment} />
 
         <h2>Инструменты и навыки</h2>
-        <ToolsAndSkills tools={tools} />
+        <ToolsAndSkills tools={props.tools} />
 
         <h2>Дополнительная информация</h2>
-        <OtherThingsToKnow other={other} />
+        <OtherThingsToKnow other={props.other} />
 
         <h2>Портфолио</h2>
-        <Portfolio portfolio={portfolio}/>
+        <Portfolio portfolio={props.portfolio}/>
       </div>
     </div>
   );
