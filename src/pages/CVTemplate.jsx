@@ -58,7 +58,38 @@ const other = [
   },
 ];
 
-export default function CVTemplate() {
+const portfolio = [
+  {
+    projectName: "Student Labs",
+    description: `
+    Омские студенты-программисты, дизайнеры и тестировщики будут работать в командах над IT-проектами.
+
+    Проекты для IT-лаборатории — реальные digital-кейсы разработки сайтов и мобильных приложений, которые проходят предварительный отбор от организаторов. Участникам предстоит работать под наставничеством экспертов в конкурентных условиях, которые будут способствовать профессиональному росту.
+    
+    После успешного завершения проекта участники получат ценный опыт, работу в портфолио и денежное вознаграждение.
+    
+    Студентам участие в лаборатории засчитывается как производственная практика.
+    `,
+    projectUrl: "https://studentlabs.ru"
+  },
+  {
+    projectName: "Aldohire",
+    description: `
+    We're committed to finding the best fit to your company's needs. In order for the match to be relevant, we're looking to understand the nature of your product or service, the structure of your engineering team, as well as what you believe your perfect developer is like. No company is alike, and top talent knows the kind of company they'd prefer to join.
+    `,
+    projectUrl: "https://www.aldohire.com/"
+  },
+  {
+    projectName: "Конструктор резюме",
+    description: `
+    Проприетарный инструмент для компании Aldo призванный оптимизировать процесс создания корпоративных резюме для последующей передачи клиенту.
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed nam, voluptas voluptatum nihil iure magni provident, nemo ex possimus saepe molestiae. A laudantium odio amet repellendus autem ipsam praesentium obcaecati.
+    `,
+    projectUrl: "https://profiles.aldohire.com/aldo-profile-anton-bektiashkin"
+  }
+]
+
+export default function CVTemplate(props) {
 
   return (
     <div
@@ -73,19 +104,19 @@ export default function CVTemplate() {
         />
       </div>
       <div className={style.content}>
-        <h1>Nikita Vedkal</h1>
+        <h1>{props.name}</h1>
 
         <h2>История</h2>
-        <EmploymentHistory history={employment} />
+        <EmploymentHistory history={props.employment} />
 
         <h2>Инструменты и навыки</h2>
-        <ToolsAndSkills tools={tools} />
+        <ToolsAndSkills tools={props.tools} />
 
         <h2>Дополнительная информация</h2>
-        <OtherThingsToKnow other={other} />
+        <OtherThingsToKnow other={props.other} />
 
         <h2>Портфолио</h2>
-        <Portfolio />
+        <Portfolio portfolio={props.portfolio}/>
       </div>
     </div>
   );
